@@ -15,9 +15,6 @@
             console.log('Guardando en base de datos', product);
         }
 
-        notifyClients() {
-            console.log('Enviando correo a los clientes');
-        }
     }
 
     class CartBloc {
@@ -26,11 +23,22 @@
         }
     }
 
+    class NotificationBloc {
+
+    notifyClients() {
+        console.log('Enviando correo a los clientes');
+    }
+
+}
+
     const productBloc = new ProductBloc();
     const cartBloc = new CartBloc();
+    const notificationBloc = new NotificationBloc();
 
     productBloc.loadProduct(10);
     productBloc.saveProduct({ id: 10, name: 'OLED TV' });
-    productBloc.notifyClients();
 
     cartBloc.AddToCart(10);
+    notificationBloc.notifyClients();
+
+})();
